@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pug-pract</title>
+    <style>
+       /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
+/*# sourceMappingURL=normalize.min.css.map */@import url("https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:wght@400;600;700;800&display=swap");
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  font-family: 'Mulish', sans-serif;
+}
+
+.container {
+  max-width: 144rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin: 0 auto;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 144rem;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  padding-left: 0;
+}
+
+.nav-item {
+  margin: 0 2.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  opacity: 0;
+  display: block;
+  width: 100%;
+  height: .2rem;
+  margin-top: 5px;
+  background: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
+  border-radius: 50px;
+}
+
+.nav-link.active {
+  color: white;
+}
+
+.nav-link.active::after {
+  opacity: 1;
+}
+
+.control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  padding-left: 0;
+}
+
+.control-item {
+  margin-left: 7.5rem;
+}
+
+.control-btn {
+  background-color: transparent;
+  border: none;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.control-btn_search {
+  background-image: url(images/Search.svg);
+  width: 18px;
+  height: 18px;
+}
+
+.control-btn_notice {
+  background-image: url(images/notice.svg);
+  width: 2.13rem;
+  height: 2.35rem;
+}
+
+.control-btn_account {
+  background-image: url(images/account.svg);
+  width: 18px;
+  height: 19px;
+}
+
+.section-banner {
+  border-bottom: .1rem solid #2f2e2e;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-banner__img {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  margin-right: 160px;
+  height: 100%;
+}
+
+.banner {
+  max-width: 56.2rem;
+  padding-top: 12.2rem;
+  padding-bottom: 20.3rem;
+  background-color: #000;
+  -webkit-box-shadow: 100px 0px 100px #000;
+          box-shadow: 100px 0px 100px #000;
+}
+
+.banner__title {
+  font-family: 'Marcellus', serif;
+  line-height: 7.5rem;
+  font-size: 8rem;
+}
+
+.banner__text {
+  color: #c2c2c2;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.banner-info {
+  font-weight: 800;
+  margin-bottom: 2.9rem;
+}
+
+.banner-info__year {
+  margin-right: 1.8rem;
+}
+
+.banner-info__age {
+  margin-right: 1.8rem;
+  position: relative;
+  width: 6rem;
+  display: inline-block;
+  text-align: center;
+}
+
+.banner-info__age::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2.4rem;
+  background-image: url(images/age.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: calc(50% - 1.2rem);
+  left: 0;
+  right: 0;
+}
+
+.banner-info__time {
+  margin-right: 6rem;
+}
+
+.banner-info__raiting::after {
+  content: '';
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url(images/star.svg);
+  margin-left: 1rem;
+}
+
+.banner-control {
+  margin-top: 3.1rem;
+}
+
+.banner-control__btn {
+  background-color: transparent;
+  border: none;
+  border-radius: 100px;
+  padding: 1.5rem 3rem;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.banner-control__btn-main {
+  background: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
+  color: #fff;
+  position: relative;
+  padding-left: 6rem;
+  margin-right: 3rem;
+  -webkit-box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.5);
+          box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.5);
+  -webkit-transition: .2s ease box-shadow;
+  transition: .2s ease box-shadow;
+}
+
+.banner-control__btn-main:hover {
+  -webkit-box-shadow: 0px 0px 0px rgba(50, 108, 255, 0.5);
+          box-shadow: 0px 0px 0px rgba(50, 108, 255, 0.5);
+}
+
+.banner-control__btn-main::after {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 18px;
+  background-image: url(images/btn-arrow.svg);
+  position: absolute;
+  left: 3rem;
+  top: calc(50% - .9rem);
+}
+
+.banner-control__btn-more {
+  background-color: #fff;
+  color: #323232;
+}
+
+.section {
+  padding-top: 5rem;
+}
+
+.section__h2 {
+  font-size: 2.8rem;
+  line-height: 2rem;
+  padding-left: 2rem;
+  position: relative;
+  font-weight: 700;
+}
+
+.section__h2::before {
+  content: '';
+  display: block;
+  width: .8rem;
+  height: 3.5rem;
+  background: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
+  border-radius: 50px;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 1.7rem);
+}
+
+.section__h2-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.section__btn {
+  border: none;
+  border-radius: 100px;
+  padding: 1.5rem 3rem;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+  background: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
+  color: #fff;
+  -webkit-box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.5);
+          box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.5);
+  -webkit-transition: .2s ease box-shadow;
+  transition: .2s ease box-shadow;
+  margin-top: 5.5rem;
+}
+
+.section__btn:hover {
+  -webkit-box-shadow: 0px 0px 0px rgba(50, 108, 255, 0.5);
+          box-shadow: 0px 0px 0px rgba(50, 108, 255, 0.5);
+}
+
+.movies {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 50px;
+}
+
+.movies-item {
+  -webkit-box-shadow: 0px 0px 20px rgba(44, 176, 249, 0);
+          box-shadow: 0px 0px 20px rgba(44, 176, 249, 0);
+  -webkit-transition: .2s ease box-shadow;
+  transition: .2s ease box-shadow;
+  border-radius: 2rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 14%;
+          flex: 0 0 14%;
+}
+
+.movies-item:hover {
+  -webkit-box-shadow: 0px 0px 20px rgba(44, 176, 249, 0.5);
+          box-shadow: 0px 0px 20px rgba(44, 176, 249, 0.5);
+}
+
+.movies__link {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 30.9rem;
+  display: block;
+}
+
+.movies__img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.genres {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+}
+
+.genres-item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 24%;
+          flex: 0 0 24%;
+  border-radius: 2rem;
+}
+
+.genres-item_romance {
+  background: linear-gradient(109.31deg, #FD093F 2.4%, #F383F1 100%);
+  width: 340px;
+  height: 198px;
+  cursor: pointer;
+}
+
+.genres-item_romance-img {
+  margin-top: 35px;
+}
+
+.genres-item_Dramma {
+  background: linear-gradient(114.5deg, #0FFFDA 2.22%, #3CDB77 68.84%);
+  width: 340px;
+  height: 198px;
+  cursor: pointer;
+}
+
+.genres-item_Dramma-img {
+  margin-top: 35px;
+}
+
+.genres-item_Historical {
+  background: linear-gradient(109.31deg, #B936FF 2.4%, #57DEDA 100%);
+  width: 340px;
+  height: 198px;
+  cursor: pointer;
+}
+
+.genres-item_Historical-img {
+  margin-top: 35px;
+}
+
+.genres-item_Action {
+  background: linear-gradient(109.31deg, #FD093F 2.4%, #FB1378 2.41%, #FCCB1A 100%);
+  width: 340px;
+  height: 198px;
+  cursor: pointer;
+}
+
+.genres-item_Action-img {
+  margin-top: 35px;
+}
+
+.genres-item_Sci-Fi {
+  background: linear-gradient(109.31deg, #FF6472 2.4%, #FDA75D 100%);
+  width: 340px;
+  height: 198px;
+  margin-top: 27px;
+  cursor: pointer;
+}
+
+.genres-item_Sci-Fi-img {
+  margin-top: 22px;
+}
+
+.genres-item_Horror {
+  background: linear-gradient(110.16deg, #13547A 2.37%, #80D0C7 96.77%);
+  width: 340px;
+  height: 198px;
+  margin-top: 27px;
+  cursor: pointer;
+}
+
+.genres-item_Horror-img {
+  margin-top: 35px;
+}
+
+.genres-item_comedy {
+  background: linear-gradient(109.93deg, #FFF77B 2.37%, #FFBF42 50%);
+  width: 340px;
+  height: 198px;
+  margin-top: 27px;
+  cursor: pointer;
+}
+
+.genres-item_comedy-img {
+  margin-top: 32px;
+}
+
+.genres-item_Documentary {
+  background: linear-gradient(109.31deg, #1FA2FF 2.4%, #1FA2FF 2.41%, #1F535C 97.46%);
+  width: 340px;
+  height: 198px;
+  margin-top: 27px;
+  cursor: pointer;
+}
+
+.genres-item_Documentary-img {
+  margin-top: 33px;
+}
+
+.actors {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.actors-item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 14%;
+          flex: 0 0 14%;
+}
+
+.actors__link {
+  overflow: hidden;
+  position: relative;
+  width: 19rem;
+  height: 19rem;
+  display: block;
+  border-radius: 100%;
+}
+
+.actors-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 19rem;
+  height: 19rem;
+}
+
+footer {
+  background-color: #101012;
+  padding: 2rem 0;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 144rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin: 0 auto;
+}
+
+.footer-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.footer-list__link {
+  font-size: 1.8rem;
+  color: #c2c2c2;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-list__item {
+  margin-bottom: 1rem;
+}
+/*# sourceMappingURL=style.css.map */
+    </style>
+  </head>
+  <body>
+    <header> 
+      <div class="header"> <a href="#"> <img src="images/header-logo.svg" alt="logo"></a>
+        <nav> 
+          <ul class="nav"> 
+            <li class="nav-item"> <a class="nav-link active" href="#">Home </a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">TV shous</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">Movies</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">Series </a></li>
+          </ul>
+        </nav>
+        <ul class="control">
+          <li class="control-item"> 
+            <button class="control-btn control-btn_search"></button>
+          </li>
+          <li class="control-item"> 
+            <button class="control-btn control-btn_notice"></button>
+          </li>
+          <li class="control-item"> 
+            <button class="control-btn control-btn_account">   </button>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <section class="section-banner"><img class="section-banner__img" src="/src/images/banner.png" alt="Banner">
+      <div class="container">
+        <div class="banner">
+          <h1 class="banner__title">Zack Snyder's Justice League</h1>
+          <div class="banner-info"><span class="banner-info__year">2021</span><span class="banner-info__age">18+</span><span class="banner-info__time">4h 2min</span><span class="banner-info__raiting">8.8</span></div>
+          <p class="banner__text">Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.</p>
+          <div class="banner-control"> 
+            <button class="banner-control__btn banner-control__btn-main">Watch</button>
+            <button class="banner-control__btn banner-control__btn-more">More information</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section"> 
+      <div class="container">
+        <h2 class="section__h2"><a class="section__h2-link" href="#">Trending TV shows ></a></h2>
+        <div class="movies"> 
+          <div class="movies-item"> <a class="movies__link" href="#"><img class="movies__img" src="../src/images/posters/poster-1.png" alt=""></a></div>
+          <div class="movies-item"> <a class="movies__link" href="#"><img class="movies__img" src="../src/images/posters/poster-1.png" alt=""></a></div>
+          <div class="movies-item"> <a class="movies__link" href="#"><img class="movies__img" src="../src/images/posters/poster-1.png" alt=""></a></div>
+          <div class="movies-item"> <a class="movies__link" href="#"><img class="movies__img" src="../src/images/posters/poster-1.png" alt=""></a></div>
+          <div class="movies-item"> <a class="movies__link" href="#"><img class="movies__img" src="../src/images/posters/poster-1.png" alt=""></a></div>
+          <div class="movies-item"> <a class="movies__link" href="#"><img class="movies__img" src="../src/images/posters/poster-1.png" alt=""></a></div>
+        </div>
+      </div>
+    </section>
+    <section class="section"> 
+      <div class="container">
+        <h2 class="section__h2"><a class="section__h2-link" href="#">Trending Movies ></a></h2>
+        <div class="movies"> 
+          <div class="movies-item"> <a class="movies__link" href="#"><img class="movies__img" src="../src/images/posters/poster-1.png" alt=""></a></div>
+          <div class="movies-item"> <a class="movies__link" href="#"><img class="movies__img" src="../src/images/posters/poster-1.png" alt=""></a></div>
+          <div class="movies-item"> <a class="movies__link" href="#"><img class="movies__img" src="../src/images/posters/poster-1.png" alt=""></a></div>
+          <div class="movies-item"> <a class="movies__link" href="#"><img class="movies__img" src="../src/images/posters/poster-1.png" alt=""></a></div>
+          <div class="movies-item"> <a class="movies__link" href="#"><img class="movies__img" src="../src/images/posters/poster-1.png" alt=""></a></div>
+          <div class="movies-item"> <a class="movies__link" href="#"><img class="movies__img" src="../src/images/posters/poster-1.png" alt=""></a></div>
+        </div>
+        <button class="section__btn">See more</button>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container"> 
+        <h2 class="section__h2"> <a class="section__h2-link" href="#">Popular Genres </a></h2>
+        <div class="genres"> 
+          <div class="genres-item genres-item_romance"> <img class="genres-item_romance-img" src="../src/images/Romance.svg" alt=""></div>
+          <div class="genres-item genres-item_Dramma"> <img class="genres-item_Dramma-img" src="../src/images/Dramma.svg" alt=""></div>
+          <div class="genres-item genres-item_Historical"><img class="genres-item_Historical-img" src="../src/images/Historical.svg" alt=""></div>
+          <div class="genres-item genres-item_Action"><img class="genres-item_Action-img" src="../src/images/Action.svg" alt=""></div>
+          <div class="genres-item genres-item_Sci-Fi"><img class="genres-item_Sci-Fi-img" src="../src/images/Sci-Fi.svg" alt=""></div>
+          <div class="genres-item genres-item_Horror"><img class="genres-item_Horror-img" src="../src/images/Horror.svg" alt=""></div>
+          <div class="genres-item genres-item_comedy"><img class="genres-item_comedy-img" src="../src/images/comedy.svg" alt=""></div>
+          <div class="genres-item genres-item_Documentary"><img class="genres-item_Documentary-img" src="../src/images/Documentary.svg" alt=""></div>
+        </div>
+      </div>
+    </section>
+    <section class="section"> 
+      <div class="container"> 
+        <h2 class="section__h2"> <a class="section__h2-link" href="#">Popular Acters </a></h2>
+        <div class="actors"> 
+          <div class="actors-item"><a class="actors__link" href="#"><img class="actors-img" src="../src/images/actor.png" alt=""></a>
+            <h3 class="actors__title">Samanta Bowen</h3>
+          </div>
+          <div class="actors-item"><a class="actors__link" href="#"><img class="actors-img" src="../src/images/actor.png" alt=""></a>
+            <h3 class="actors__title">Samanta Bowen</h3>
+          </div>
+          <div class="actors-item"><a class="actors__link" href="#"><img class="actors-img" src="../src/images/actor.png" alt=""></a>
+            <h3 class="actors__title">Samanta Bowen</h3>
+          </div>
+          <div class="actors-item"><a class="actors__link" href="#"><img class="actors-img" src="../src/images/actor.png" alt=""></a>
+            <h3 class="actors__title">Samanta Bowen</h3>
+          </div>
+          <div class="actors-item"><a class="actors__link" href="#"><img class="actors-img" src="../src/images/actor.png" alt=""></a>
+            <h3 class="actors__title">Samanta Bowen</h3>
+          </div>
+          <div class="actors-item"><a class="actors__link" href="#"><img class="actors-img" src="../src/images/actor.png" alt=""></a>
+            <h3 class="actors__title">Samanta Bowen</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer> 
+      <div class="footer"> 
+        <div class="footer-item"> <a href="#"> <img src="images/header-logo.svg" alt="logo"></a></div>
+        <div class="footer-item"> 
+          <ul class="footer-list"> 
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Voice over and Subtitle</a></li>
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Media centr</a></li>
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Privasy</a></li>
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-item"> 
+          <ul class="footer-list"> 
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Voice over and Subtitle</a></li>
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Media centr</a></li>
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Privasy</a></li>
+          </ul>
+        </div>
+        <div class="footer-item"> 
+          <ul class="footer-list"> 
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Voice over and Subtitle</a></li>
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Media centr</a></li>
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Privasy</a></li>
+          </ul>
+        </div>
+        <div class="footer-item"> 
+          <ul class="footer-list"> 
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Voice over and Subtitle</a></li>
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Media centr</a></li>
+            <li class="footer-list__item"> <a class="footer-list__link" href="#">Privasy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
